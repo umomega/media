@@ -64,10 +64,14 @@ class ImageProcessor {
 
 		$medium->path = $relativePath . '/' . $filename;
 
+		$m = $medium->metadata;
+
 		list($width, $height, $type, $attr) = getimagesize($p);
-        $media->metadata['size'] = filesize($p);
-        $media->metadata['width'] = $width;
-        $media->metadata['height'] = $height;
+        $m['size'] = filesize($p);
+        $m['width'] = $width;
+        $m['height'] = $height;
+
+        $medium->metadata = $m;
 
 		$medium->save();
 	}

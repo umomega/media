@@ -2,7 +2,7 @@
 	"name": "umomega/media",
 	"description": "Media Scaffold For umΩ Apps",
 	"keywords": ["umomega", "laravel", "media", "laravel", "php"],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"authors": [
         {
