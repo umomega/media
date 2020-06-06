@@ -1,0 +1,32 @@
+{
+	"name": "umomega/media",
+	"description": "Media Scaffold For umΩ Apps",
+	"keywords": ["umomega", "laravel", "media", "laravel", "php"],
+	"version": "1.0.0",
+	"license": "MIT",
+	"authors": [
+        {
+            "name": "Egemen Kızılcan",
+            "email": "egemen@umomega.com",
+            "homepage": "http://umomega.com",
+            "role": "Developer / Designer"
+        }
+    ],
+    "require": {
+    	"php": "^7.2.5",
+        "embed/embed": "^4.0",
+        "intervention/image": "^2.5",
+        "intervention/imagecache": "^2.4",
+        "laravel/framework": "^7.0",
+        "nyholm/psr7": "^1.2",
+        "spatie/laravel-activitylog": "^3.14",
+        "spatie/laravel-image-optimizer": "^1.6",
+        "spatie/laravel-searchable": "^1.5",
+        "spatie/laravel-translatable": "^4.1"
+    },
+    "autoload": {
+    	"psr-4": {
+    		"Umomega\\Media\\": "src/"
+    	}
+    }
+}
