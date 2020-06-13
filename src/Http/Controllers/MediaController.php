@@ -185,7 +185,7 @@ class MediaController extends Controller
 
 		return [
 			'message' => __('media::media.deleted'),
-			'action' => 'index'
+			'redirect' => 'media.index'
 		];
 	}
 
