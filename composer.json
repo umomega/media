@@ -1,14 +1,14 @@
 {
 	"name": "umomega/media",
 	"description": "Media Scaffold For umΩ Apps",
-	"keywords": ["umomega", "laravel", "media", "laravel", "php"],
-	"version": "1.0.2",
+	"keywords": ["umomega", "laravel", "media", "php"],
+	"version": "1.0.3",
 	"license": "MIT",
 	"authors": [
         {
             "name": "Egemen Kızılcan",
             "email": "egemen@umomega.com",
-            "homepage": "http://umomega.com",
+            "homepage": "https://umomega.com",
             "role": "Developer / Designer"
         }
     ],
