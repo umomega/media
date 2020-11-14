@@ -52,4 +52,8 @@ return [
 	'event_edited_image' => 'has edited an image',
 	'event_destroyed' => 'has deleted a medium',
 	'event_destroyed_bulk' => 'has deleted media',
+
+	'hint_public_url' => 'The public URL from which the document can be reached.',
+	'hint_alttext' => 'Alternative text for the image, necessary for SEO.',
+	'hint_embed' => 'The URL of the embeddable media. Allowed platforms: Facebook, Google, Twitter, Instagram, Vimeo, Wikipedia, Youtube etc.'
 ];
