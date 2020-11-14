@@ -55,5 +55,5 @@ return [
 
 	'hint_public_url' => 'The public URL from which the document can be reached.',
 	'hint_alttext' => 'Alternative text for the image, necessary for SEO.',
-	'hint_embed' => 'The URL of the embeddable media. Allowed platforms: Facebook, Google, Twitter, Instagram, Vimeo, Wikipedia, Youtube etc.'
+	'hint_embed' => 'The URL of the embeddable media.<br>Allowed platforms: Facebook, Google, Twitter, Instagram, Vimeo, Wikipedia, Youtube etc.'
 ];
