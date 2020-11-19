@@ -19,7 +19,7 @@ class MediaController extends Controller
 	use UploadsFiles;
 
 	/**
-	 * Returns a list of tags
+	 * Returns a list of media
 	 *
 	 * @param Request $request
 	 * @return json
