@@ -19,11 +19,11 @@ class CreateMediaTable extends Migration
             $table->string('path');
             $table->string('name');
             $table->string('type')->index();
-            $table->json('metadata');
+            $table->json('metadata')->nullable();
 
-            $table->json('alttext');
-            $table->json('caption');
-            $table->json('description');
+            $table->json('alttext')->nullable();
+            $table->json('caption')->nullable();
+            $table->json('description')->nullable();
             
             $table->timestamps();
         });

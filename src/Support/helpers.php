@@ -1,5 +1,7 @@
 <?php
 
+use Umomega\Media\Medium;
+
 if ( ! function_exists('upload_path'))
 {
 	/**
@@ -128,5 +130,35 @@ if ( ! function_exists('get_new_file_name'))
     function get_new_file_name($extension = null)
     {
         return md5(uniqid(mt_rand(), true)) . ($extension ? '.' . $extension : '');
+    }
+}
+
+if( ! function_exists('get_medium'))
+{
+    /**
+     * Returns a medium
+     *
+     * @param int $id
+     * @return Medium
+     */
+    function get_medium($id)
+    {
+        return Medium::find($id);
+    }
+}
+
+if( ! function_exists('get_media'))
+{
+    /**
+     * Returns a medium
+     *
+     * @param array $id
+     * @return Medium
+     */
+    function get_media(array $ids)
+    {
+        return Medium::whereIn('id', $ids)
+            ->orderByRaw('FIELD (id, ' . implode(', ', $ids) . ') ASC')
+            ->get();
     }
 }

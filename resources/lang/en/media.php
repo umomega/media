@@ -28,6 +28,9 @@ return [
 	'drop_to_upload' => 'Drag and drop media to upload or',
 	'select_to_upload' => 'Select Files to Upload',
 
+	'no_media_selected' => 'No media selected.',
+	'drag_and_drop_to_upload' => 'Drag and drop to upload.',
+
 	'allowed_extensions' => 'Allowed file extensions:',
 	'allowed_size' => 'Maximum allowed file size:',
 

@@ -15,9 +15,7 @@ trait UploadsFiles {
 	 */
 	protected function createMedium(UploadedFile $file)
 	{
-		$attributes = $this->storeUploadedFile($file);
-
-		return Medium::create($attributes);
+		return Medium::create($this->storeUploadedFile($file));
 	}
 
 	/**
