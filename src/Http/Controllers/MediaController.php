@@ -121,7 +121,8 @@ class MediaController extends Controller
 
 		return [
 			'message' => __('media::media.edited'),
-			'payload' => $medium
+			'payload' => $medium,
+			'event' => 'medium-updated'
 		];
 	}
 

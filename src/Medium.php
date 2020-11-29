@@ -44,7 +44,7 @@ class Medium extends Model implements Searchable {
      *
      * @var array
      */
-    protected $appends = ['thumbnail_url', 'public_url', 'locales'];
+    protected $appends = ['thumbnail_url', 'compact_url', 'public_url', 'locales'];
 
     /**
      * Searchable config
@@ -68,6 +68,20 @@ class Medium extends Model implements Searchable {
         if($this->type === 'embed' && isset($this->metadata['image_local'])) return $this->imageURLFor('thumbnail', $this->metadata['image_local']);
 
     	return null;
+    }
+
+    /**
+     * Accessor for the compact URL
+     *
+     * @return string
+     */
+    public function getCompactUrlAttribute()
+    {
+        if($this->type === 'image') return $this->imageURLFor('compact');
+
+        if($this->type === 'embed' && isset($this->metadata['image_local'])) return $this->imageURLFor('compact', $this->metadata['image_local']);
+
+        return null;
     }
 
     /**
