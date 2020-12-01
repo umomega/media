@@ -30,6 +30,7 @@ return [
 
 	'no_media_selected' => 'No media selected.',
 	'drag_and_drop_to_upload' => 'Drag and drop to upload.',
+	'select_from_library' => 'Open library to select media.',
 
 	'allowed_extensions' => 'Allowed file extensions:',
 	'allowed_size' => 'Maximum allowed file size:',
