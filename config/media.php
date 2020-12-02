@@ -11,7 +11,7 @@ return [
     | upload path relative to base path.
 	|
 	*/
-    'upload_path' => 'uploads',
+    'upload_path' => 'storage/uploads',
 
 	 /*
 	|--------------------------------------------------------------------------
