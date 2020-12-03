@@ -28,5 +28,12 @@
     	"psr-4": {
     		"Umomega\\Media\\": "src/"
     	}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Umomega\\Media\\Providers\\MediaServiceProvider"
+            ]
+        }
     }
 }
