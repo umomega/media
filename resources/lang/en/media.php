@@ -48,7 +48,7 @@ return [
 	'rotate_cw' => 'Rotate Clockwise',
 	'flip_vertical' => 'Flip Vertical',
 	'flip_horizontal' => 'Flip Horizontal',
-	'make_greyscale' => 'Make Greyscale',
+	'make_greyscale' => 'Make Grayscale',
 
 	'event_uploaded' => 'has uploaded a new medium',
 	'event_embedded' => 'has added an embedded medium',
@@ -57,7 +57,7 @@ return [
 	'event_destroyed' => 'has deleted a medium',
 	'event_destroyed_bulk' => 'has deleted media',
 
-	'hint_public_url' => 'The public URL from which the document can be reached.',
-	'hint_alttext' => 'Alternative text for the image. Recommended for improving SEO.',
+	'hint_public_url' => 'The public URL from which the medium can be reached.',
+	'hint_alttext' => 'Alternative text for the medium. Recommended for improving SEO.',
 	'hint_embed' => 'The URL of the embeddable media.<br>Allowed platforms: Facebook, Google, Twitter, Instagram, Vimeo, Wikipedia, Youtube etc.'
 ];
