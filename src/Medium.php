@@ -234,5 +234,21 @@ class Medium extends Model implements Searchable {
 
         return $attributes;
     }
+
+    /**
+     * Presenter for responsive image
+     *
+     * @return string
+     */
+    public function getResponsiveAttribute()
+    {
+        $sizes = [];
+
+        foreach(['xlarge' => '1920w', 'large' => '1600w', 'medium' => '960w', 'small' => '640w', 'xsmall' => '400w'] as $filter => $width) {
+            $sizes[] = $this->imageURLFor($filter) . ' ' . $width;
+        }
+
+        return '<img class="w-full" src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '">'; 
+    }
 	
 }
