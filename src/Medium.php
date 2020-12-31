@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Medium extends Model implements Searchable {
 
-	use HasTranslations;
+	use HasTranslations, Cachable;
 
 	/**
      * The attributes that are mass assignable.
