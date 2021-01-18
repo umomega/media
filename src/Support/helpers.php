@@ -143,6 +143,8 @@ if( ! function_exists('get_medium'))
      */
     function get_medium($id)
     {
+        if(!is_int($id) && is_object($id)) return $id;
+
         return Medium::find($id);
     }
 }

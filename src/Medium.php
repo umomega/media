@@ -10,9 +10,9 @@ use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Medium extends Model implements Searchable {
 
-	use HasTranslations, Cachable;
+    use HasTranslations, Cachable;
 
-	/**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -64,11 +64,11 @@ class Medium extends Model implements Searchable {
      */
     public function getThumbnailUrlAttribute()
     {
-    	if($this->type === 'image') return $this->imageURLFor('thumbnail');
+        if($this->type === 'image') return $this->imageURLFor('thumbnail');
 
         if($this->type === 'embed' && isset($this->metadata['image_local'])) return $this->imageURLFor('thumbnail', $this->metadata['image_local']);
 
-    	return null;
+        return null;
     }
 
     /**
@@ -115,7 +115,7 @@ class Medium extends Model implements Searchable {
      * @return string
      */
     public function imageURLFor($filter, $path = null) {
-    	return url(config('imagecache.route') . '/' . $filter . '/' . ($path ?: $this->path));
+        return url(config('imagecache.route') . '/' . $filter . '/' . ($path ?: $this->path));
     }
 
     /**
@@ -237,11 +237,22 @@ class Medium extends Model implements Searchable {
     }
 
     /**
-     * Presenter for responsive image
+     * Shorthand for the responsive attribute
      *
      * @return string
      */
     public function getResponsiveAttribute()
+    {
+        return $this->responsiveImage();
+    }
+
+    /**
+     * Presenter for responsive image
+     *
+     * @param string $class
+     * @return string
+     */
+    public function responsiveImage($class = 'w-full')
     {
         $sizes = [];
 
@@ -249,7 +260,7 @@ class Medium extends Model implements Searchable {
             $sizes[] = $this->imageURLFor($filter) . ' ' . $width;
         }
 
-        return '<img class="w-full" src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '">'; 
+        return '<img src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '" class="' . $class . '">'; 
     }
-	
+    
 }
