@@ -260,7 +260,7 @@ class Medium extends Model implements Searchable {
             $sizes[] = $this->imageURLFor($filter) . ' ' . $width;
         }
 
-        return '<img src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '" class="' . $class . '">'; 
+        return '<img src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '" class="' . $class . '" width="' . $this->metadata['width'] . '" height="' . $this->metadata['height'] . '">'; 
     }
     
 }
