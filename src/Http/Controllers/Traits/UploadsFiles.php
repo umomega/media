@@ -28,7 +28,7 @@ trait UploadsFiles {
 	{
 		$attributes = [
 			'name' => $file->getClientOriginalName(),
-			'type' => config('media.media_types.' . $file->getMimeType()),
+			'type' => config('media.media_types.' . $file->getMimeType(), 'document'),
 			'metadata' => [
 				'extension' => $file->getClientOriginalExtension(),
 				'mimetype' => $file->getMimeType(),
