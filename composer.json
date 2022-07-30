@@ -2,7 +2,7 @@
 	"name": "umomega/media",
 	"description": "Media Scaffold For umΩ Apps",
 	"keywords": ["umomega", "laravel", "media", "php"],
-	"version": "1.0.13",
+	"version": "1.1.0",
 	"license": "MIT",
 	"authors": [
         {
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-    	"php": "^7.3|^8.0",
+    	"php": "^8.0",
         "laravel/framework": "^9.0",
         "embed/embed": "^4.0",
         "genealabs/laravel-model-caching": "^0.12",
