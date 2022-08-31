@@ -38,7 +38,7 @@ return [
 	|
 	*/
     'extensions' => [
-        'jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg',
+        'jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp',
         'txt', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx',
         'aac', 'mp3', 'mp4', 'mpeg', 'mpg', 'ogg', 'wav', 'webm',
     ],
@@ -53,7 +53,7 @@ return [
 	|
 	*/
     'mimetypes' => [
-        'image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/svg+xml',
+        'image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/svg+xml', 'image/webp',
         'text/plain', 'application/pdf', 'application/msword', 'application/vnd.ms-excel', 'application/vnd.ms-powerpoint',
 		'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 		'application/vnd.openxmlformats-officedocument.presentationml.presentation',
