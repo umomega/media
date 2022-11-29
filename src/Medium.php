@@ -254,6 +254,8 @@ class Medium extends Model implements Searchable {
      */
     public function responsiveImage($class = 'w-full')
     {
+        if($this->type != 'image') return null;
+        
         $sizes = [];
 
         foreach(['xlarge' => '1920w', 'large' => '1600w', 'medium' => '960w', 'small' => '640w', 'xsmall' => '400w'] as $filter => $width) {
@@ -261,6 +263,44 @@ class Medium extends Model implements Searchable {
         }
 
         return '<img src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '" class="' . $class . '" width="' . $this->metadata['width'] . '" height="' . $this->metadata['height'] . '">'; 
+    }
+
+    /**
+     * Compresses self if an image
+     */
+    public function autoCompress()
+    {
+        if(($this->metadata['width'] <= 2000 && $this->metadata['height'] <= 2000)
+            || !in_array($this->metadata['extension'], ['jpeg', 'jpg', 'png'])) return false;
+
+        $width = $this->metadata['width'];
+        $height = $this->metadata['height'];
+
+        $path = public_path(upload_path($this->path));
+
+        $manager = new \Intervention\Image\ImageManager();
+
+        $manager->make($path)->resize(
+            ($width >= $height ? 2000 : null),
+            ($width < $height ? 2000 : null),
+            function($constraint) { $constraint->aspectRatio(); }
+        )->save();
+
+        \ImageOptimizer::optimize($path);
+
+        list($width, $height, $type, $attr) = getimagesize($path);
+
+        $metadata = $this->metadata;
+                
+        $metadata['width'] = $width;
+        $metadata['height'] = $height;
+        $metadata['size'] = filesize($path);
+
+        $this->metadata = $metadata;
+
+        $this->save();
+
+        return true;
     }
     
 }

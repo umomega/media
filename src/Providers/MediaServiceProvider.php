@@ -28,6 +28,12 @@ class MediaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $commands = [
+            \Umomega\Media\Console\CompressImages::class
+        ];
+
+        $this->commands($commands);
+
         $this->publishes([__DIR__ . '/../../config/media.php' => config_path('media.php')], 'config');
 
         $this->publishes([__DIR__ . '/../../resources/lang' => resource_path('lang/vendor/media')], 'lang');
