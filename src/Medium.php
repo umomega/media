@@ -94,7 +94,7 @@ class Medium extends Model implements Searchable {
     {
         if($this->type === 'embed') return $this->path;
 
-        return url(upload_path($this->path));
+        return asset(upload_path($this->path));
     }
 
     /**
@@ -115,7 +115,7 @@ class Medium extends Model implements Searchable {
      * @return string
      */
     public function imageURLFor($filter, $path = null) {
-        return url(config('imagecache.route') . '/' . $filter . '/' . ($path ?: $this->path));
+        return asset(config('imagecache.route') . '/' . $filter . '/' . ($path ?: $this->path));
     }
 
     /**
