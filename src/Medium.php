@@ -254,15 +254,39 @@ class Medium extends Model implements Searchable {
      */
     public function responsiveImage($class = 'w-full')
     {
-        if($this->type != 'image') return null;
-        
-        $sizes = [];
+        if ($this->type != 'image') return null;
 
-        foreach(['xlarge' => '1920w', 'large' => '1600w', 'medium' => '960w', 'small' => '640w', 'xsmall' => '400w'] as $filter => $width) {
-            $sizes[] = $this->imageURLFor($filter) . ' ' . $width;
+        $sources = [
+            'xlarge' => 1920,
+            'large'  => 1600,
+            'medium' => 960,
+            'small'  => 640,
+            'xsmall' => 400,
+        ];
+
+        $srcset = [];
+        foreach ($sources as $filter => $width) {
+            $srcset[] = $this->imageURLFor($filter) . ' ' . $width . 'w';
         }
 
-        return '<img src="' . $this->imageURLFor('large') . '" srcset="' . implode(', ', $sizes) . '" alt="' . $this->alttext . '" class="' . $class . '" width="' . $this->metadata['width'] . '" height="' . $this->metadata['height'] . '">'; 
+        // Generic sizes: assumes full width on small screens, capped on large ones
+        $sizes = [
+            '(max-width: 640px) 100vw',
+            '(max-width: 960px) 90vw',
+            '(max-width: 1600px) 80vw',
+            '1200px', // default fallback for very large screens
+        ];
+
+        return sprintf(
+            '<img src="%s" srcset="%s" sizes="%s" alt="%s" class="%s" width="%d" height="%d">',
+            $this->imageURLFor('xlarge'),          // fallback src
+            implode(', ', $srcset),               // srcset list
+            implode(', ', $sizes),                // layout-aware sizes
+            htmlspecialchars(empty($this->alttext) ? '' : (is_array($this->alttext) ? $this->alttext[0] : $this->alttext)), // safe alt
+            $class,
+            $this->metadata['width'] ?? 0,
+            $this->metadata['height'] ?? 0
+        );
     }
 
     /**
