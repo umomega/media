@@ -252,7 +252,7 @@ class Medium extends Model implements Searchable {
      * @param string $class
      * @return string
      */
-    public function responsiveImage($class = 'w-full')
+    public function responsiveImage($class = 'w-full', $attributes = ['loading' => 'lazy', 'decoding' => 'async'])
     {
         if ($this->type != 'image') return null;
 
@@ -278,14 +278,17 @@ class Medium extends Model implements Searchable {
         ];
 
         return sprintf(
-            '<img src="%s" srcset="%s" sizes="%s" alt="%s" class="%s" width="%d" height="%d">',
+            '<img src="%s" srcset="%s" sizes="%s" alt="%s" class="%s" width="%d" height="%d" %s/>',
             $this->imageURLFor('xlarge'),          // fallback src
             implode(', ', $srcset),               // srcset list
             implode(', ', $sizes),                // layout-aware sizes
             htmlspecialchars(empty($this->alttext) ? '' : (is_array($this->alttext) ? $this->alttext[0] : $this->alttext)), // safe alt
             $class,
             $this->metadata['width'] ?? 0,
-            $this->metadata['height'] ?? 0
+            $this->metadata['height'] ?? 0,
+            collect($attributes)->map(function($value, $key) {
+                return $key . '="' . htmlspecialchars($value) . '"';
+            })->implode(' ')
         );
     }
 
